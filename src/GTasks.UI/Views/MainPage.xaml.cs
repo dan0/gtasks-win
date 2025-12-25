@@ -333,6 +333,97 @@ public sealed partial class MainPage : Page
         }
     }
 
+    private async void TaskDatePicker_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)
+    {
+        if (_viewModel == null) return;
+
+        // Find the task from the DataContext
+        if (sender.DataContext is TaskItem task && args.NewDate != args.OldDate)
+        {
+            DateTimeOffset? newDate = args.NewDate?.Date;
+            await _viewModel.UpdateTaskDueDateCommand.ExecuteAsync((task, newDate));
+        }
+    }
+
+    private async void SetDateToday_Click(object sender, RoutedEventArgs e)
+    {
+        if (_viewModel == null) return;
+
+        if (sender is Button button && GetTaskFromButton(button) is TaskItem task)
+        {
+            var today = DateTimeOffset.Now.Date;
+            await _viewModel.UpdateTaskDueDateCommand.ExecuteAsync((task, (DateTimeOffset?)today));
+            CloseFlyoutFromButton(button);
+        }
+    }
+
+    private async void SetDateTomorrow_Click(object sender, RoutedEventArgs e)
+    {
+        if (_viewModel == null) return;
+
+        if (sender is Button button && GetTaskFromButton(button) is TaskItem task)
+        {
+            var tomorrow = DateTimeOffset.Now.Date.AddDays(1);
+            await _viewModel.UpdateTaskDueDateCommand.ExecuteAsync((task, (DateTimeOffset?)tomorrow));
+            CloseFlyoutFromButton(button);
+        }
+    }
+
+    private async void ClearDate_Click(object sender, RoutedEventArgs e)
+    {
+        if (_viewModel == null) return;
+
+        if (sender is Button button && GetTaskFromButton(button) is TaskItem task)
+        {
+            await _viewModel.UpdateTaskDueDateCommand.ExecuteAsync((task, (DateTimeOffset?)null));
+            CloseFlyoutFromButton(button);
+        }
+    }
+
+    private static TaskItem? GetTaskFromButton(Button button)
+    {
+        // Navigate up the visual tree to find the DataContext
+        var parent = button.Parent;
+        while (parent != null)
+        {
+            if (parent is FrameworkElement fe && fe.DataContext is TaskItem task)
+            {
+                return task;
+            }
+            parent = (parent as FrameworkElement)?.Parent;
+        }
+        return null;
+    }
+
+    private static void CloseFlyoutFromButton(Button button)
+    {
+        // Navigate up to find and close the Flyout
+        var parent = button.Parent;
+        while (parent != null)
+        {
+            if (parent is Flyout flyout)
+            {
+                flyout.Hide();
+                return;
+            }
+            if (parent is FrameworkElement fe)
+            {
+                // Check if this element is inside a Flyout
+                var flyoutParent = fe.Parent;
+                if (flyoutParent is FlyoutPresenter presenter)
+                {
+                    // Find the flyout and hide it
+                    break;
+                }
+                parent = fe.Parent;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
     private async void NewListButton_Click(object sender, RoutedEventArgs e)
     {
         if (_viewModel == null) return;

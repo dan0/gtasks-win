@@ -149,6 +149,15 @@ public partial class MainViewModel : ObservableObject
     }
 
     [RelayCommand]
+    private async Task UpdateTaskDueDateAsync((TaskItem task, DateTimeOffset? date) args)
+    {
+        args.task.Due = args.date;
+        args.task.UpdatedAt = DateTimeOffset.Now;
+        args.task.SyncState = SyncState.PendingUpdate;
+        await _taskRepository.UpsertTaskAsync(args.task);
+    }
+
+    [RelayCommand]
     private void OpenCommandPalette()
     {
         IsCommandPaletteOpen = true;

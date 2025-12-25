@@ -27,7 +27,13 @@
       "Bash(taskkill:*)",
       "Bash(cmd /c \"taskkill /F /IM GTasks.App.exe\")",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: GTasks Windows client\n\nA modern, keyboard-first Google Tasks client for Windows 11 built with WinUI 3 and .NET 10.\n\nFeatures:\n- Google OAuth 2.0 authentication\n- Task list management with filtering \\(Today, Tomorrow, Overdue\\)\n- Quick add with natural language date parsing\n- SQLite offline storage with sync support\n- Right-click context menus for task deletion\n- Switch account functionality\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git remote:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
