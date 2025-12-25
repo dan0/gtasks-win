@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:developers.google.com)",
+      "Bash(dotnet new:*)",
+      "Bash(where:*)",
+      "Bash(dir \"C:\\\\Program Files\\\\dotnet\")",
+      "Bash(dir \"C:\\\\Program Files \\(x86\\)\\\\dotnet\")",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" --version)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" new sln -n GTasks)",
+      "Bash(mkdir:*)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" new list)",
+      "Bash(findstr:*)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" new install Microsoft.WindowsAppSDK.Templates)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" new search winui)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" sln add:*)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" build)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" build src/GTasks.UI/GTasks.UI.csproj -v normal)",
+      "Bash(dir:*)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" clean)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" run --project src/GTasks.App/GTasks.App.csproj)",
+      "Bash(\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" build C:UsersdanieOneDriveDocumentsCodegtasks-winGTasks.sln)",
+      "Bash(cmd /c \"cd /d \"\"C:\\\\Users\\\\danie\\\\OneDrive\\\\Documents\\\\Code\\\\gtasks-win\"\" && \"\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\"\" build GTasks.sln\")",
+      "Bash(cmd /c \"cd /d \"\"C:\\\\Users\\\\danie\\\\OneDrive\\\\Documents\\\\Code\\\\gtasks-win\"\" && \"\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\"\" build GTasks.sln 2>&1\")",
+      "Bash(powershell -Command \"Set-Location 'C:\\\\Users\\\\danie\\\\OneDrive\\\\Documents\\\\Code\\\\gtasks-win'; & 'C:\\\\Program Files\\\\dotnet\\\\dotnet.exe' build GTasks.sln\":*)",
+      "Bash(powershell -Command:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd /c \"taskkill /F /IM GTasks.App.exe\")",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GTasks.App/GTasks.App.csproj" />
+    <Project Path="src/GTasks.Core/GTasks.Core.csproj" />
+    <Project Path="src/GTasks.Data/GTasks.Data.csproj" />
+    <Project Path="src/GTasks.UI/GTasks.UI.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="GTasks.UI.Controls.CommandPalette"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Border Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+            CornerRadius="8"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1"
+            Padding="0"
+            MaxHeight="500">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="SearchBox"
+                     PlaceholderText="Search tasks or type a command..."
+                     BorderThickness="0"
+                     Background="Transparent"
+                     Padding="16,12"
+                     FontSize="16" />
+
+            <ListView Grid.Row="1" x:Name="ResultsView" Padding="8" />
+        </Grid>
+    </Border>
+</UserControl>
